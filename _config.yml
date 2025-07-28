@@ -23,24 +23,25 @@ repository               : "shirshamukherjee.github.io/projectfrthistime"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  name             : "Shirsha Mukherjee"
+  pronouns         : # example: "he/him"  
+  bio              : "I'm a rising junior at the University of Oklahoma! I'm double majoring in Math & Physics, and love to train martial arts and play guitar. I've condutced resaerch in
+  a variety of areas from biomedical engineering, to engineering pathways, to gravitational-wave analysis."
+  location         : "Oklahoma, USA"
+  employer         : "University of Oklahoma"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "shirsha.mukherjee@ou.edu" 
 
   # Academic websites
-  academia         : # URL
-  arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
-  semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
-  scopus           : # URL
+ # academia         : # URL
+ # arxiv            : # URL - Update with the correct link to your profile
+ # googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+ # impactstory      : # URL
+  orcid            : "https://orcid.org/0009-0007-0866-4599"
+ # semantic         : # URL
+ # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+ # researchgate     : # URL
+ # scopus           : # URL
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
