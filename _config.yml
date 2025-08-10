@@ -12,7 +12,7 @@ site_theme               : "default"
 title                    : "Shirsha Mukherjee CIERA REU"
 title_separator          : "-"
 name                     : &name "Shirsha Mukherjee"
-description              : &description "Rising Junior @ The University of Oklahoman"
+description              : &description "Rising Junior @ The University of Oklahoma"
 url                      : https://shirshamukherjee.github.io/projectfrthistime
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "shirshamukherjee.github.io/projectfrthistime"
