@@ -43,3 +43,103 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
+/* === GLOBAL STAR BACKDROP (full-page, fixed, covers everything) === */
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("space_image") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Optional: subtle dark overlay so text is readable on every section */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.28);      /* tweak darkness */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === MAKE THEME WRAPPERS TRANSPARENT SO THE STARS SHOW THROUGH === */
+/* Minimal Mistakes / AcademicPages commonly used wrappers */
+.initial-content,
+.page,
+.page__inner-wrap,
+.page__content,
+.page__footer,
+.sidebar,
+.sidebar__right,
+.layout--single,
+.layout--home,
+.archive,
+#main,
+#content,
+.wrapper,
+.container {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* === NAV BAR (masthead) — let background show, no separators === */
+.masthead,
+.masthead__inner-wrap,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.masthead,
+.page__footer {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+.masthead::before,
+.greedy-nav::before,
+.initial-content::before,
+.page::before,
+.page__inner-wrap::before,
+.page__content::before,
+.page__footer::before {
+  content: none !important;          /* removes those thin hairline rules */
+}
+
+/* === LEGIBILITY TWEAKS (optional, but helpful over images) === */
+/* Make nav links readable on dark/varied backgrounds */
+.masthead a,
+.greedy-nav a { color: #fff; }
+.greedy-nav a:hover { opacity: .85; }
+
+/* Body text color on image (adjust if your stars are very bright) */
+body { color: rgba(255,255,255,0.92); }
+a { color: #a8c8ff; }                 /* accessible blue on dark bg */
+a:hover { color: #d6e4ff; }
+
+/* Cards/boxed components sometimes have their own bg — neutralize them */
+blockquote,
+.notice,
+.highlight,
+code,
+pre,
+.table-wrapper,
+.btn,
+.button,
+.card,
+.feature__item {
+  background: rgba(0,0,0,0.25) !important;  /* faint panel for readability */
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Footer text a bit dimmer than body text */
+.page__footer,
+.page__footer * { color: rgba(255,255,255,0.8) !important; }
+
+/* If any page still shows a stray line, it’s likely a 1px border on a unique class:
+   Inspect in DevTools, then add that selector above with `border:0; box-shadow:none; background:transparent;` */
+
