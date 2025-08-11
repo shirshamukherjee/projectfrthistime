@@ -43,54 +43,54 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
-/* 1) Full-page background image */
-html, body {
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-  background: url("/assets/images/my-background.jpg") no-repeat center center fixed;
-  background-size: cover;
-}
+// /* 1) Full-page background image */
+// html, body {
+//   min-height: 100%;
+//   margin: 0;
+//   padding: 0;
+//   background: url("/assets/images/my-background.jpg") no-repeat center center fixed;
+//   background-size: cover;
+// }
 
-/* 2) Let the background show through all wrappers */
-.initial-content,
-.page,
-.page__inner-wrap,
-.page__content,
-.page__footer {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-}
+// /* 2) Let the background show through all wrappers */
+// .initial-content,
+// .page,
+// .page__inner-wrap,
+// .page__content,
+// .page__footer {
+//   background: transparent !important;
+//   box-shadow: none !important;
+//   border: 0 !important;
+// }
 
-/* 3) Kill the nav’s white strip */
-.masthead,
-.greedy-nav {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-}
+// /* 3) Kill the nav’s white strip */
+// .masthead,
+// .greedy-nav {
+//   background: transparent !important;
+//   box-shadow: none !important;
+//   border: 0 !important;
+// }
 
-/* 4) Remove hairlines drawn with ::before rules (theme uses these) */
-.initial-content::before,
-.page::before,
-.page__inner-wrap::before,
-.page__content::before,
-.page__footer::before,
-.masthead::before,
-.greedy-nav::before {
-  content: none !important;
-}
+// /* 4) Remove hairlines drawn with ::before rules (theme uses these) */
+// .initial-content::before,
+// .page::before,
+// .page__inner-wrap::before,
+// .page__content::before,
+// .page__footer::before,
+// .masthead::before,
+// .greedy-nav::before {
+//   content: none !important;
+// }
 
-/* 5) Footer separator line (some MM builds use this border) */
-.page__footer { border-top: 0 !important; }
+// /* 5) Footer separator line (some MM builds use this border) */
+// .page__footer { border-top: 0 !important; }
 
 
-html::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.25);   /* tweak to taste */
-  pointer-events: none;
-  z-index: 0;
-}
+// html::after {
+//   content: "";
+//   position: fixed;
+//   inset: 0;
+//   background: rgba(0,0,0,0.25);   /* tweak to taste */
+//   pointer-events: none;
+//   z-index: 0;
+// }
