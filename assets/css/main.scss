@@ -5,8 +5,13 @@
  * This file controls what is imported from /_sass
  *
  * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll
  */
+
+body {
+    background: linear-gradient(45deg, #ff6a00, #ee0979); // Example gradient from orange to pink
+}
+
 
 @import
     "vendor/breakpoint/breakpoint",
