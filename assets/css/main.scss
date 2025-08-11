@@ -205,3 +205,26 @@ pre,
 .masthead a,
 .greedy-nav a { color: #fff !important; }
 .greedy-nav a:hover { opacity: .85; }
+
+
+/* Prev / Next buttons — white text over star bg */
+.pagination a,
+a.pagination--pager,
+.pagination--pager {
+  color: #fff !important;
+}
+
+a.pagination--pager {
+  background: rgba(0,0,0,0.25) !important;   /* or 'transparent' if you prefer */
+  border-color: rgba(255,255,255,0.55) !important;
+  text-decoration: none !important;
+}
+
+/* Hover/focus for better contrast */
+a.pagination--pager:hover,
+a.pagination--pager:focus {
+  color: #fff !important;
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.85) !important;
+}
+
