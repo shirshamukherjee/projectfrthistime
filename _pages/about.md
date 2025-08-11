@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Hello! My name is Shirsha Mukherjee! I am currently a 3rd year undergraduate student at the University of Oklahoma. I'm studying Math & Physics, and I also love language & music.
+Hello! My name is Shirsha Mukherjee. I am currently a 3rd year undergraduate student at the University of Oklahoma. I'm studying Math & Physics, and I also love language & music.
 
 
 Research Interests
