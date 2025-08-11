@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Shirsha Mukherjee CIERA REU"
+title                    : "Shirsha's Home"
 title_separator          : "-"
 name                     : &name "Shirsha Mukherjee"
 description              : &description "Rising Junior @ The University of Oklahoma"
