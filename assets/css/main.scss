@@ -44,5 +44,13 @@
     "vendor/font-awesome/brands"
 ;
 body {
-    background: linear-gradient(45deg, #ff6a00, #ee0979); // Example gradient from orange to pink
+    background: linear-gradient(45deg, #112C8C, #FFFFFF); // Example gradient from orange to pink
+     margin: 0;
+    padding: 0;
 }
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%; // Ensures the height takes up the full screen
+}
+
