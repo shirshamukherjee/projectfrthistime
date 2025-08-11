@@ -181,3 +181,27 @@ pre,
   border: 0 !important;
 }
 
+.masthead__menu-item,
+.masthead__menu-item > a,
+.greedy-nav .visible-links,
+.greedy-nav .visible-links li,
+.greedy-nav .hidden-links,
+.greedy-nav .hidden-links li {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Remove any pseudo-element strips that draw lines */
+.masthead__menu::before,
+.masthead__menu::after,
+.greedy-nav .visible-links::before,
+.greedy-nav .visible-links::after {
+  content: none !important;
+}
+
+/* Keep nav text readable on the stars */
+.masthead a,
+.greedy-nav a { color: #fff !important; }
+.greedy-nav a:hover { opacity: .85; }
