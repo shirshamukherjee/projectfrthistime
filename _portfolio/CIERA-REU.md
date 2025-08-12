@@ -1,10 +1,8 @@
 ---
 title: "CIERA REU Research"
-excerpt: "My work at CEIRA 1<br/><img src='/images/bbh.png.png'>"
-collection: portfolio
+excerpt: "My work at CEIRA"
+collection: CIERA-REU
 ---
-
-// This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML//
 
 In a few weeks, the fourth Gravitational Wave Transient Catalog (GWTC-4) will be released. This includes the combined observations from O1, O2, O3, and O4 of the 
 LIGO-Virgo-KAGRA, cite detectors. But what are gravitational waves?
