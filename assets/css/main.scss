@@ -143,57 +143,27 @@ pre,
 /* If any page still shows a stray line, it’s likely a 1px border on a unique class:
    Inspect in DevTools, then add that selector above with `border:0; box-shadow:none; background:transparent;` */
 
-/* Kill the white nav bar */
+/* Deep blue-black nav bar */
 .masthead,
 .masthead__inner-wrap,
 .masthead__menu,
 #site-nav.greedy-nav,
 #site-nav.greedy-nav .visible-links,
-#site-nav.greedy-nav .hidden-links {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.greedy-nav {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;   /* removes the rounded white pill look */
-}
-
-/* remove the thin hairline the theme draws */
-.masthead,
-.masthead * { border-bottom: 0 !important; }
-.masthead::before,
-.greedy-nav::before { content: none !important; }
-
-/* keep links readable over the image */
-.masthead a,
-.greedy-nav a { color: #fff !important; }
-.greedy-nav a:hover { opacity: .85; }
-
-/* if you use the built-in search, make its bits transparent too */
-.search__toggle,
-.search-content {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-}
-
+#site-nav.greedy-nav .hidden-links,
+.greedy-nav,
 .masthead__menu-item,
 .masthead__menu-item > a,
 .greedy-nav .visible-links,
 .greedy-nav .visible-links li,
 .greedy-nav .hidden-links,
 .greedy-nav .hidden-links li {
-  background: transparent !important;
+  background: rgba(5, 10, 20, 0.9) !important; /* deep navy with 90% opacity */
   border: 0 !important;
   box-shadow: none !important;
   border-radius: 0 !important;
 }
 
-/* Remove any pseudo-element strips that draw lines */
+/* Remove any pseudo-element strips */
 .masthead__menu::before,
 .masthead__menu::after,
 .greedy-nav .visible-links::before,
@@ -201,10 +171,23 @@ pre,
   content: none !important;
 }
 
-/* Keep nav text readable on the stars */
+/* Nav text color */
 .masthead a,
-.greedy-nav a { color: #fff !important; }
-.greedy-nav a:hover { opacity: .85; }
+.greedy-nav a {
+  color: #fff !important;
+}
+.greedy-nav a:hover {
+  opacity: .85;
+}
+
+/* Search bar transparent/dark to match */
+.search__toggle,
+.search-content {
+  background: rgba(5, 10, 20, 0.9) !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
 
 // trying to change colors of prev and next buttons
 /* Make Prev/Next buttons white text */
