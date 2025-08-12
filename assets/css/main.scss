@@ -84,10 +84,66 @@ html::after {
   border: 0 !important;
 }
 
-/* Deep-space BLUE nav (semi-opaque, blends with starfield) */
-$nav-blue-top: rgba(18, 44, 96, 0.92);   // slightly brighter blue
-$nav-blue-btm: rgba(12, 36, 84, 0.88);   // deeper blue
+/* === NAV BAR (masthead) — let background show, no separators === */
+.masthead,
+.masthead__inner-wrap,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.masthead,
+.page__footer {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+.masthead::before,
+.greedy-nav::before,
+.initial-content::before,
+.page::before,
+.page__inner-wrap::before,
+.page__content::before,
+.page__footer::before {
+  content: none !important;          /* removes those thin hairline rules */
+}
 
+/* === LEGIBILITY TWEAKS (optional, but helpful over images) === */
+/* Make nav links readable on dark/varied backgrounds */
+.masthead a,
+.greedy-nav a { color: #fff; }
+.greedy-nav a:hover { opacity: .85; }
+
+/* Body text color on image (adjust if your stars are very bright) */
+body { color: rgba(255,255,255,0.92); }
+a { color: #a8c8ff; }                 /* accessible blue on dark bg */
+a:hover { color: #d6e4ff; }
+
+/* Cards/boxed components sometimes have their own bg — neutralize them */
+blockquote,
+.notice,
+.highlight,
+code,
+pre,
+.table-wrapper,
+.btn,
+.button,
+.card,
+.feature__item {
+  background: rgba(0,0,0,0.25) !important;  /* faint panel for readability */
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Footer text a bit dimmer than body text */
+.page__footer,
+.page__footer * { color: rgba(255,255,255,0.8) !important; }
+
+/* If any page still shows a stray line, it’s likely a 1px border on a unique class:
+   Inspect in DevTools, then add that selector above with `border:0; box-shadow:none; background:transparent;` */
+
+/* Deep blue-black nav bar */
 .masthead,
 .masthead__inner-wrap,
 .masthead__menu,
@@ -101,26 +157,19 @@ $nav-blue-btm: rgba(12, 36, 84, 0.88);   // deeper blue
 .greedy-nav .visible-links li,
 .greedy-nav .hidden-links,
 .greedy-nav .hidden-links li {
-  background: linear-gradient(180deg, $nav-blue-top 0%, $nav-blue-btm 100%) !important;
+  background: rgba(5, 10, 20, 0.9) !important; /* deep navy with 90% opacity */
   border: 0 !important;
+  box-shadow: none !important;
   border-radius: 0 !important;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset !important; /* subtle divider */
-  backdrop-filter: saturate(120%) blur(2px); /* optional; remove if you dislike blur */
 }
 
-/* remove any theme hairlines */
-.masthead::before,
-.greedy-nav::before,
+/* Remove any pseudo-element strips */
 .masthead__menu::before,
 .masthead__menu::after,
 .greedy-nav .visible-links::before,
-.greedy-nav .visible-links::after { content: none !important; }
-
-/* link colors on the blue */
-.masthead a,
-.greedy-nav a { color: #eaf2ff !important; }
-.greedy-nav a:hover { color: #ffffff !important; opacity: 1; }
-
+.greedy-nav .visible-links::after {
+  content: none !important;
+}
 
 /* Nav text color */
 .masthead a,
