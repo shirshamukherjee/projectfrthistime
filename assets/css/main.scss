@@ -156,3 +156,55 @@ a.pagination--pager:focus {
   background: rgba(255,255,255,0.08) !important;
   border-color: rgba(255,255,255,0.85) !important;
 }
+
+
+/* ==== PERMANENT COLORS + NO THEME TOGGLE ==== */
+
+/* 1) Hide the Light/Dark switch in the nav */
+#theme-toggle,
+li#theme-toggle { display: none !important; }
+
+/* 2) Force text color regardless of any theme attribute or media query */
+html,
+body,
+:root,
+html[data-theme],
+html[data-theme="light"],
+html[data-theme="dark"],
+body[data-theme="light"],
+body[data-theme="dark"] {
+  color: #d9dde5 !important;      /* light gray for main text */
+}
+
+/* Apply that light gray to common content containers too */
+body,
+.page,
+.page__content,
+.initial-content,
+.sidebar,
+.archive,
+.page__footer {
+  color: #d9dde5 !important;
+}
+
+/* 3) Headings: brighter so they pop */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+/* 4) Links: readable blues on the star background */
+a { color: #aec8ff !important; }
+a:hover, a:focus { color: #dbe6ff !important; }
+
+/* 5) Code blocks / notices (optional: keep readable over image) */
+pre, code, .highlight, .notice {
+  color: #e8ebf2 !important;
+}
+
+/* 6) Make sure the theme’s dark-mode rules can’t override these */
+@media (prefers-color-scheme: dark) {
+  body, .page, .page__content, .sidebar, .archive, .page__footer {
+    color: #d9dde5 !important;
+  }
+}
+
