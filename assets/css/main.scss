@@ -243,3 +243,19 @@ html::after {
 .page__footer {
   background: transparent !important;
 }
+
+.masthead,
+.masthead__inner-wrap,
+.masthead__menu,
+#site-nav.greedy-nav,
+#site-nav.greedy-nav .visible-links,
+#site-nav.greedy-nav .hidden-links,
+.greedy-nav,
+.masthead__menu-item,
+.masthead__menu-item > a,
+.greedy-nav .visible-links,
+.greedy-nav .visible-links li,
+.greedy-nav .hidden-links,
+.greedy-nav .hidden-links li {
+  backdrop-filter: none !important;
+}
