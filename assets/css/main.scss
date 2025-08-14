@@ -44,23 +44,36 @@
     "vendor/font-awesome/brands"
 ;
 
-/* === GLOBAL STAR BACKDROP (full-page, fixed, covers everything) === */
+/* Background is handled by pseudo-elements now — turn off body bg */
 html, body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background: url("../../space_image.png") no-repeat center center fixed;
-  background-size: cover;
+  background: none !important;
 }
-
-/* Optional: subtle dark overlay so text is readable on every section */
+/* subtle dark overlay for readability */
 html::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.28);      /* tweak darkness */
+  z-index: -1;                  /* above the image, behind content */
+  background: rgba(0,0,0,0.18);  /* tweak 0.12–0.22 to taste */
   pointer-events: none;
-  z-index: 0;
+}
+
+
+/* Full-screen star image behind all content (no "fixed" seam) */
+html { position: relative; }  /* create stacking context */
+
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;  /* bottommost layer */
+  background: url("../../space_image.png") center center / cover no-repeat;
+  /* help certain GPUs avoid micro-seams */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* === MAKE THEME WRAPPERS TRANSPARENT SO THE STARS SHOW THROUGH === */
@@ -285,3 +298,19 @@ html::after {
   pointer-events: none;
 }
 
+.masthead,
+.masthead__inner-wrap,
+.masthead__menu,
+#site-nav.greedy-nav,
+#site-nav.greedy-nav .visible-links,
+#site-nav.greedy-nav .hidden-links,
+.greedy-nav,
+.masthead__menu-item,
+.masthead__menu-item > a,
+.greedy-nav .visible-links,
+.greedy-nav .visible-links li,
+.greedy-nav .hidden-links,
+.greedy-nav .hidden-links li {
+  box-shadow: none !important;     /* remove any bottom edge line */
+  backdrop-filter: none !important;
+}
