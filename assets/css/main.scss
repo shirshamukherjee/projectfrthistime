@@ -207,4 +207,39 @@ h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
 
 /* If you’re using an overlay, keep it BEHIND the content so it doesn't dim text */
 html { position: relative; }
-html::after { z-index: -1; }  /* you already have the rest of the overlay rule */
+/* Overlay goes BEHIND everything so it can't dim content */
+html { position: relative; }
+
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;                 /* was 0 */
+  background: rgba(0,0,0,0.18);/* tweak 0.12–0.22 to taste */
+  pointer-events: none;
+}
+
+/* Remove any mid-page bands/strips */
+.initial-content::before,
+.initial-content::after,
+.page::before,
+.page::after,
+.page__inner-wrap::before,
+.page__inner-wrap::after,
+.page__content::before,
+.page__content::after,
+.page__footer::before,
+.page__footer::after {
+  content: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Make sure wrappers themselves are transparent */
+.page__content,
+.page__inner-wrap,
+.initial-content,
+.page__footer {
+  background: transparent !important;
+}
