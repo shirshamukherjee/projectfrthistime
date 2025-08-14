@@ -259,3 +259,29 @@ html::after {
 .greedy-nav .hidden-links li {
   backdrop-filter: none !important;
 }
+/* 1) Turn OFF the fixed background on html/body */
+html, body { background: none !important; }
+
+/* 2) Draw the stars BEHIND everything with a pseudo-element */
+html { position: relative; }
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;  /* bottom layer */
+  background: url("../../space_image.png") center center / cover no-repeat;
+  /* helps kill tiling seams on some GPUs */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* 3) Keep the dark overlay, but behind content (you already had this) */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;                 /* above image, behind content */
+  background: rgba(0,0,0,0.18);
+  pointer-events: none;
+}
+
