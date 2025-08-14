@@ -16,7 +16,7 @@
 
     "themes",
     "theme/default",
-    "theme/dark",
+    // "theme/dark",
 
     "include/mixins",
     "vendor/susy/susy",
@@ -156,3 +156,55 @@ a.pagination--pager:focus {
   background: rgba(255,255,255,0.08) !important;
   border-color: rgba(255,255,255,0.85) !important;
 }
+
+
+
+/* ==== Disable theme switching + force white text everywhere ==== */
+
+/* Hide any theme toggle button if present */
+#theme-toggle,
+li#theme-toggle { display: none !important; }
+
+/* Freeze Minimal Mistakes variables to a single palette */
+:root,
+html,
+html[data-theme],
+html[data-theme="light"],
+html[data-theme="dark"],
+body[data-theme="light"],
+body[data-theme="dark"] {
+  --global-text-color: #ffffff !important;        /* main body text */
+  --global-base-color: #ffffff !important;
+  --global-masthead-link-color: #ffffff !important;
+
+  /* keep bg variables neutral because you use an image */
+  --global-bg-color: transparent !important;
+  --global-footer-bg-color: transparent !important;
+  --global-border-color: rgba(255,255,255,0.20) !important;
+  --global-dark-border-color: rgba(255,255,255,0.35) !important;
+  --global-thead-color: rgba(255,255,255,0.12) !important;
+}
+
+/* Make sure actual text uses white, even if some pieces don't use variables */
+body,
+.page,
+.page__content,
+.initial-content,
+.archive,
+.sidebar,
+.page__footer,
+.page__content p,
+.page__content li,
+.page__content dl,
+.page__content dt,
+.page__content dd,
+small, time, figcaption {
+  color: #ffffff !important;
+}
+
+/* Headings stay bright */
+h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
+
+/* If you’re using an overlay, keep it BEHIND the content so it doesn't dim text */
+html { position: relative; }
+html::after { z-index: -1; }  /* you already have the rest of the overlay rule */
