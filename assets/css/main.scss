@@ -314,3 +314,28 @@ html::after {
   box-shadow: none !important;     /* remove any bottom edge line */
   backdrop-filter: none !important;
 }
+
+
+/* Flash David Goggins over the avatar for ~0.5s, then reveal your photo */
+.sidebar .author__avatar { position: relative; } /* container for absolute pseudo */
+
+.sidebar .author__avatar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;                         /* above the <img> */
+  border-radius: 9999px;              /* match circular avatar */
+  background: url("../../IMG_3341.png") center / cover no-repeat; /* from /assets/css -> /assets/images */
+  pointer-events: none;
+  animation: goggins-flash 0.5s ease-out forwards; /* change 0.5s if you want longer/shorter */
+}
+
+@keyframes goggins-flash {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar .author__avatar::before { animation: none; opacity: 0; }
+}
