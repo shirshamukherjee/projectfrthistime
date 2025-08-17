@@ -317,7 +317,7 @@ html::after {
 
 
 /* Flash David Goggins over the avatar, then reveal your photo */
-$goggins: "{{ '/IMG_3341.png' | relative_url }}";  /* it's at site root */
+$goggins: "{{ '/images/IMG_3341.png' | relative_url }}";  /* it's at site root */
 
 .author__avatar,
 .sidebar .author__avatar {
