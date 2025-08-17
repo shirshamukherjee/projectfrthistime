@@ -316,26 +316,43 @@ html::after {
 }
 
 
-/* Flash David Goggins over the avatar for ~0.5s, then reveal your photo */
-.sidebar .author__avatar { position: relative; } /* container for absolute pseudo */
+/* Flash David Goggins over the avatar, then reveal your photo */
+$goggins: "{{ '/../../IMG_3341.png' | relative_url }}";
 
+.author__avatar,
+.sidebar .author__avatar {     /* cover both common templates */
+  position: relative;
+  overflow: hidden;            /* keep it circular */
+  border-radius: 9999px;
+}
+
+.author__avatar::before,
 .sidebar .author__avatar::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;                         /* above the <img> */
-  border-radius: 9999px;              /* match circular avatar */
-  background: url("../../IMG_3341.png") center / cover no-repeat; /* from /assets/css -> /assets/images */
+  z-index: 2;                  /* above the <img> */
+  border-radius: inherit;
+  background: url(#{$goggins}) center / cover no-repeat;
   pointer-events: none;
-  animation: goggins-flash 0.5s ease-out forwards; /* change 0.5s if you want longer/shorter */
+
+  /* Show for ~0.5s, then disappear instantly */
+  animation-name: goggins-flash;
+  animation-duration: 0.5s;                /* visible time */
+  animation-fill-mode: forwards;
+  animation-timing-function: steps(1, end);/* hold at 1, then jump to 0 */
 }
 
 @keyframes goggins-flash {
   from { opacity: 1; }
-  to   { opacity: 0; }
+  to   { opacity: 0; }  /* becomes fully transparent after 0.5s */
 }
 
-/* Respect reduced-motion preferences */
+/* Respect reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .sidebar .author__avatar::before { animation: none; opacity: 0; }
+  .author__avatar::before,
+  .sidebar .author__avatar::before {
+    animation: none;
+    opacity: 0;
+  }
 }
