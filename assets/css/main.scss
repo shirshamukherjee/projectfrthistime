@@ -317,12 +317,12 @@ html::after {
 
 
 /* Flash David Goggins over the avatar, then reveal your photo */
-$goggins: "{{ '/../../IMG_3341.png' | relative_url }}";
+$goggins: "{{ '/IMG_3341.png' | relative_url }}";  /* it's at site root */
 
 .author__avatar,
-.sidebar .author__avatar {     /* cover both common templates */
+.sidebar .author__avatar {
   position: relative;
-  overflow: hidden;            /* keep it circular */
+  overflow: hidden;
   border-radius: 9999px;
 }
 
@@ -331,24 +331,16 @@ $goggins: "{{ '/../../IMG_3341.png' | relative_url }}";
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;                  /* above the <img> */
+  z-index: 2;
   border-radius: inherit;
   background: url(#{$goggins}) center / cover no-repeat;
   pointer-events: none;
 
-  /* Show for ~0.5s, then disappear instantly */
-  animation-name: goggins-flash;
-  animation-duration: 0.5s;                /* visible time */
-  animation-fill-mode: forwards;
-  animation-timing-function: steps(1, end);/* hold at 1, then jump to 0 */
+  animation: goggins-flash 0.5s ease-out forwards;
 }
 
-@keyframes goggins-flash {
-  from { opacity: 1; }
-  to   { opacity: 0; }  /* becomes fully transparent after 0.5s */
-}
+@keyframes goggins-flash { to { opacity: 0; } }
 
-/* Respect reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .author__avatar::before,
   .sidebar .author__avatar::before {
