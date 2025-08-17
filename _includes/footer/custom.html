@@ -1,4 +1,13 @@
 <!-- start custom footer snippets -->
+<script>
+  window.addEventListener('load', function () {
+    var img = document.querySelector('.author__avatar img, .sidebar .author__avatar img');
+    if (!img) return;
+    var realSrc = img.getAttribute('src');
+    img.src = "{{ '/IMG_3341.png' | relative_url }}";
+    setTimeout(function(){ img.src = realSrc; }, 500);
+  });
+</script>
 
 <a href="/sitemap/">Sitemap</a>
 
