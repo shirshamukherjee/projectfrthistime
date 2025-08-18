@@ -3,40 +3,59 @@
   <!-- start custom footer snippets -->
 <!-- start custom footer snippets -->
 <script>
-  (function () {
-    const FLASH_URL = "{{ '/images/IMG_3341.png' | relative_url }}";
-    const DURATION  = 500; // ms
-    const WRAPS = document.querySelectorAll(
-      '.author__avatar, .sidebar .author__avatar'
-    );
-    if (!WRAPS.length) return;
+window.addEventListener('load', function () {
+  const FLASH_URL = "{{ '/images/IMG_3341.png' | relative_url }}";
+  const DURATION  = 500; // ms to show Goggins
 
-    // Preload first so Safari never shows a broken icon
-    const pre = new Image();
-    pre.onload = function () {
-      WRAPS.forEach(function (wrap) {
-        // ensure wrapper can host the overlay nicely
-        if (getComputedStyle(wrap).position === 'static') wrap.style.position = 'relative';
-        if (getComputedStyle(wrap).overflow !== 'hidden') wrap.style.overflow = 'hidden';
-
-        const overlay = document.createElement('img');
-        overlay.src = FLASH_URL;
-        overlay.alt = "";
-        overlay.className = 'flash-goggins';
-        wrap.appendChild(overlay);
-
-        // remove after the animation finishes
-        setTimeout(function () {
-          overlay.remove();
-        }, DURATION + 150);
+  // 1) Find a good host element for the overlay
+  // Prefer the standard wrapper; otherwise pick the biggest image's parent in the sidebar
+  let host = document.querySelector('.author__avatar, .sidebar .author__avatar');
+  if (!host) {
+    const sidebar = document.querySelector('.sidebar, .page__sidebar, .sidebar__left, .sidebar__right');
+    if (sidebar) {
+      let best = null, maxArea = 0;
+      sidebar.querySelectorAll('img').forEach(img => {
+        const w = img.naturalWidth  || img.width  || 0;
+        const h = img.naturalHeight || img.height || 0;
+        const area = w * h;
+        if (area > maxArea) { maxArea = area; best = img; }
       });
-    };
-    pre.onerror = function () {
-      // If it fails, do nothing—no broken icon.
-    };
-    pre.src = FLASH_URL;
-  })();
-</script>
+      if (best) host = best.parentElement || best;
+    }
+  }
+  if (!host) return; // nothing to do
+
+  // 2) Preload the flash image (prevents Safari "?" icon)
+  const pre = new Image();
+  pre.onload = function () {
+    // ensure the host can clip/position the overlay
+    const cs = getComputedStyle(host);
+    if (cs.position === 'static') host.style.position = 'relative';
+    if (cs.overflow !== 'hidden') host.style.overflow = 'hidden';
+    if (!cs.borderRadius || cs.borderRadius === '0px') host.style.borderRadius = '9999px';
+
+    // 3) Create and style the overlay <img>
+    const overlay = new Image();
+    overlay.src = FLASH_URL;
+    overlay.alt = "";
+    Object.assign(overlay.style, {
+      position:     'absolute',
+      inset:        '0',
+      zIndex:       '3',
+      width:        '100%',
+      height:       '100%',
+      objectFit:    'cover',
+      borderRadius: 'inherit',
+      pointerEvents:'none',
+      opacity:      '1',
+      transition:   'opacity 0.5s ease-out'
+    });
+
+    host.appendChild(overlay);
+
+    // 4) Fade out and remove
+    setTimeout(() => { overlay.style.opacity = '0';
+
 <!-- end custom footer snippets -->
 
 <!-- end custom footer snippets -->
