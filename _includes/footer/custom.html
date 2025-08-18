@@ -1,56 +1,19 @@
 <!-- start custom footer snippets -->
 
-<!-- (1) Flash a circular image briefly on load -->
-<script>
-(function () {
-  const URL = "{{ '/images/IMG_3341.png' | absolute_url }}";
-  const SHOW_MS = 500; // how long the flash shows
-
-  function flash() {
-    // Full-screen overlay (inline styles so we don’t depend on CSS files)
-    const wrap = document.createElement('div');
-    wrap.style.cssText =
-      'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:1;transition:opacity .5s ease-out;background:transparent;';
-    const img = document.createElement('img');
-    img.src = URL; img.alt = '';
-    img.style.cssText =
-      'width:220px;height:220px;border-radius:9999px;object-fit:cover;box-shadow:0 12px 40px rgba(0,0,0,.5);';
-    wrap.appendChild(img);
-    document.body.appendChild(wrap);
-
-    // Fade out then remove
-    setTimeout(() => { wrap.style.opacity = '0'; }, 350);
-    setTimeout(() => { wrap.remove(); }, SHOW_MS + 400);
-  }
-
-  // Preload first; only flash if the image loads
-  const pre = new Image();
-  pre.onload = flash;
-  pre.onerror = function () { /* no-op if not found */ };
-  pre.src = URL;
-
-  // Manual trigger for debugging in the console
-  window._flashNow = flash;
-  console.log('Flash script ready:', URL);
-})();
-</script>
-
-<!-- (2) Optional: link to sitemap -->
 <a href="/sitemap/">Sitemap</a>
 
-<!-- (3) Optional libraries you were using -->
-<!-- MathJax -->
+<!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
 
-<!-- Plotly -->
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js"></script>
+<!-- Support for Plotly -->
+<script defer src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js'></script>
 
-<!-- Mermaid (no top-level await) -->
+<!-- Support for Mermaid -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true, theme: 'default' });
-  mermaid.run({ querySelector: 'code.language-mermaid' });
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({startOnLoad:true, theme:'default'});
+    await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
 
 <!-- end custom footer snippets -->
