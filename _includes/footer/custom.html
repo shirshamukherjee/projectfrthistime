@@ -57,7 +57,25 @@ window.addEventListener('load', function () {
     setTimeout(() => { overlay.style.opacity = '0';
 
 <!-- end custom footer snippets -->
-
+<script>
+  window.addEventListener('load', function () {
+    const url = "{{ '/images/IMG_3341.png' | relative_url }}";
+    const pre = new Image();
+    pre.onload = function () {
+      const wrap = document.createElement('div');
+      wrap.className = 'flash-full';
+      const img = document.createElement('img');
+      img.src = url; img.alt = "";
+      wrap.appendChild(img);
+      document.body.appendChild(wrap);
+      // show briefly, then fade out and remove
+      setTimeout(() => { wrap.style.opacity = '0'; }, 350);
+      setTimeout(() => { wrap.remove(); }, 900);
+    };
+    pre.onerror = function(){ /* if it fails, do nothing */ };
+    pre.src = url;
+  });
+</script>
 <!-- end custom footer snippets -->
 
 </script>
