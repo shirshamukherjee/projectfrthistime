@@ -1,49 +1,44 @@
 <!-- start custom footer snippets -->
 
   <!-- start custom footer snippets -->
+<!-- start custom footer snippets -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const flashUrl = "{{ '/images/IMG_3341.png' | relative_url }}";
-    const DURATION_MS = 500; // how long to show Goggins
-
-    // Grab likely avatar <img> elements (covers Minimal Mistakes / AcademicPages)
-    const imgs = document.querySelectorAll(
-      '.author__avatar img, .sidebar .author__avatar img, .masthead .site-logo img'
+  (function () {
+    const FLASH_URL = "{{ '/images/IMG_3341.png' | relative_url }}";
+    const DURATION  = 500; // ms
+    const WRAPS = document.querySelectorAll(
+      '.author__avatar, .sidebar .author__avatar'
     );
-    if (!imgs.length) return;
+    if (!WRAPS.length) return;
 
-    // Preload the flash image to avoid the Safari "?" icon
-    const preload = new Image();
-    preload.onload = function () {
-      imgs.forEach(img => {
-        const orig = {
-          src: img.getAttribute('src'),
-          srcset: img.getAttribute('srcset'),
-          sizes: img.getAttribute('sizes')
-        };
+    // Preload first so Safari never shows a broken icon
+    const pre = new Image();
+    pre.onload = function () {
+      WRAPS.forEach(function (wrap) {
+        // ensure wrapper can host the overlay nicely
+        if (getComputedStyle(wrap).position === 'static') wrap.style.position = 'relative';
+        if (getComputedStyle(wrap).overflow !== 'hidden') wrap.style.overflow = 'hidden';
 
-        // Temporarily disable responsive attrs so the browser uses our flash URL
-        if (orig.srcset) img.removeAttribute('srcset');
-        if (orig.sizes)  img.removeAttribute('sizes');
+        const overlay = document.createElement('img');
+        overlay.src = FLASH_URL;
+        overlay.alt = "";
+        overlay.className = 'flash-goggins';
+        wrap.appendChild(overlay);
 
-        // Swap to Goggins, then restore after DURATION_MS
-        img.src = flashUrl;
-        setTimeout(() => {
-          if (orig.srcset) img.setAttribute('srcset', orig.srcset);
-          if (orig.sizes)  img.setAttribute('sizes',  orig.sizes);
-          img.src = orig.src;
-        }, DURATION_MS);
+        // remove after the animation finishes
+        setTimeout(function () {
+          overlay.remove();
+        }, DURATION + 150);
       });
     };
-
-    // If the flash image fails to load, do nothing (no broken icon)
-    preload.onerror = function () {
-      // no-op: keep original image
+    pre.onerror = function () {
+      // If it fails, do nothing—no broken icon.
     };
-
-    preload.src = flashUrl;
-  });
+    pre.src = FLASH_URL;
+  })();
 </script>
+<!-- end custom footer snippets -->
+
 <!-- end custom footer snippets -->
 
 </script>
