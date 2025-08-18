@@ -1,12 +1,51 @@
 <!-- start custom footer snippets -->
+
+  <!-- start custom footer snippets -->
 <script>
-  window.addEventListener('load', function () {
-    var img = document.querySelector('.author__avatar img, .sidebar .author__avatar img');
-    if (!img) return;
-    var realSrc = img.getAttribute('src');
-    img.src = "{{ '/images/IMG_3341.png' | relative_url }}";
-    setTimeout(function(){ img.src = realSrc; }, 500);
+  document.addEventListener('DOMContentLoaded', function () {
+    const flashUrl = "{{ '/images/IMG_3341.png' | relative_url }}";
+    const DURATION_MS = 500; // how long to show Goggins
+
+    // Grab likely avatar <img> elements (covers Minimal Mistakes / AcademicPages)
+    const imgs = document.querySelectorAll(
+      '.author__avatar img, .sidebar .author__avatar img, .masthead .site-logo img'
+    );
+    if (!imgs.length) return;
+
+    // Preload the flash image to avoid the Safari "?" icon
+    const preload = new Image();
+    preload.onload = function () {
+      imgs.forEach(img => {
+        const orig = {
+          src: img.getAttribute('src'),
+          srcset: img.getAttribute('srcset'),
+          sizes: img.getAttribute('sizes')
+        };
+
+        // Temporarily disable responsive attrs so the browser uses our flash URL
+        if (orig.srcset) img.removeAttribute('srcset');
+        if (orig.sizes)  img.removeAttribute('sizes');
+
+        // Swap to Goggins, then restore after DURATION_MS
+        img.src = flashUrl;
+        setTimeout(() => {
+          if (orig.srcset) img.setAttribute('srcset', orig.srcset);
+          if (orig.sizes)  img.setAttribute('sizes',  orig.sizes);
+          img.src = orig.src;
+        }, DURATION_MS);
+      });
+    };
+
+    // If the flash image fails to load, do nothing (no broken icon)
+    preload.onerror = function () {
+      // no-op: keep original image
+    };
+
+    preload.src = flashUrl;
   });
+</script>
+<!-- end custom footer snippets -->
+
 </script>
 
 <a href="/sitemap/">Sitemap</a>
