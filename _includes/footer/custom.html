@@ -4,7 +4,7 @@
     var img = document.querySelector('.author__avatar img, .sidebar .author__avatar img');
     if (!img) return;
     var realSrc = img.getAttribute('src');
-    img.src = "{{ '/IMG_3341.png' | relative_url }}";
+    img.src = "{{ '/images/IMG_3341.png' | relative_url }}";
     setTimeout(function(){ img.src = realSrc; }, 500);
   });
 </script>
