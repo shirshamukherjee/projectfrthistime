@@ -3,79 +3,48 @@
   <!-- start custom footer snippets -->
 <!-- start custom footer snippets -->
 <script>
-window.addEventListener('load', function () {
-  const FLASH_URL = "{{ '/images/IMG_3341.png' | relative_url }}";
-  const DURATION  = 500; // ms to show Goggins
+(function () {
+  const URL = "{{ '/images/IMG_3341.png' | relative_url }}";
+  const SHOW_MS = 500; // how long to show the flash
 
-  // 1) Find a good host element for the overlay
-  // Prefer the standard wrapper; otherwise pick the biggest image's parent in the sidebar
-  let host = document.querySelector('.author__avatar, .sidebar .author__avatar');
-  if (!host) {
-    const sidebar = document.querySelector('.sidebar, .page__sidebar, .sidebar__left, .sidebar__right');
-    if (sidebar) {
-      let best = null, maxArea = 0;
-      sidebar.querySelectorAll('img').forEach(img => {
-        const w = img.naturalWidth  || img.width  || 0;
-        const h = img.naturalHeight || img.height || 0;
-        const area = w * h;
-        if (area > maxArea) { maxArea = area; best = img; }
-      });
-      if (best) host = best.parentElement || best;
-    }
+  function flash() {
+    // Full-screen overlay wrapper (inline styles so we don't depend on CSS files)
+    const wrap = document.createElement('div');
+    wrap.setAttribute('style',
+      'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:1;transition:opacity .5s ease-out;background:transparent;');
+
+    // The circular image
+    const img = document.createElement('img');
+    img.src = URL;
+    img.alt = '';
+    img.setAttribute('style',
+      'width:220px;height:220px;border-radius:9999px;object-fit:cover;box-shadow:0 12px 40px rgba(0,0,0,.5);');
+
+    wrap.appendChild(img);
+    document.body.appendChild(wrap);
+
+    // Fade out, then remove
+    setTimeout(() => { wrap.style.opacity = '0'; }, 350);
+    setTimeout(() => { wrap.remove(); }, SHOW_MS + 400);
   }
-  if (!host) return; // nothing to do
 
-  // 2) Preload the flash image (prevents Safari "?" icon)
+  // Preload to avoid any broken-icon flicker, then show
   const pre = new Image();
-  pre.onload = function () {
-    // ensure the host can clip/position the overlay
-    const cs = getComputedStyle(host);
-    if (cs.position === 'static') host.style.position = 'relative';
-    if (cs.overflow !== 'hidden') host.style.overflow = 'hidden';
-    if (!cs.borderRadius || cs.borderRadius === '0px') host.style.borderRadius = '9999px';
+  pre.onload = flash;
+  pre.onerror = function () {
+    console.warn('Flash image failed to load:', URL);
+    // If it fails to load, just skip flashing — no broken icon.
+  };
+  pre.src = URL;
 
-    // 3) Create and style the overlay <img>
-    const overlay = new Image();
-    overlay.src = FLASH_URL;
-    overlay.alt = "";
-    Object.assign(overlay.style, {
-      position:     'absolute',
-      inset:        '0',
-      zIndex:       '3',
-      width:        '100%',
-      height:       '100%',
-      objectFit:    'cover',
-      borderRadius: 'inherit',
-      pointerEvents:'none',
-      opacity:      '1',
-      transition:   'opacity 0.5s ease-out'
-    });
-
-    host.appendChild(overlay);
-
-    // 4) Fade out and remove
-    setTimeout(() => { overlay.style.opacity = '0';
+  // Expose a manual trigger for debugging
+  window._flashNow = flash;
+  console.log('Flash script ready:', URL);
+})();
+</script>
 
 <!-- end custom footer snippets -->
-<script>
-  window.addEventListener('load', function () {
-    const url = "{{ '/images/IMG_3341.png' | relative_url }}";
-    const pre = new Image();
-    pre.onload = function () {
-      const wrap = document.createElement('div');
-      wrap.className = 'flash-full';
-      const img = document.createElement('img');
-      img.src = url; img.alt = "";
-      wrap.appendChild(img);
-      document.body.appendChild(wrap);
-      // show briefly, then fade out and remove
-      setTimeout(() => { wrap.style.opacity = '0'; }, 350);
-      setTimeout(() => { wrap.remove(); }, 900);
-    };
-    pre.onerror = function(){ /* if it fails, do nothing */ };
-    pre.src = url;
-  });
-</script>
+
 <!-- end custom footer snippets -->
 
 </script>
