@@ -368,3 +368,26 @@ $goggins: "{{ '/images/IMG_3341.png' | relative_url }}";  /* it's at site root *
 .author__avatar,
 .sidebar .author__avatar { position: relative; overflow: hidden; border-radius: 9999px; }
 
+/* Full-page flash overlay */
+.flash-full {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: transparent;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+.flash-full img {
+  width: 220px; height: 220px;      /* tweak size */
+  border-radius: 9999px;             /* circle */
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+@media (prefers-reduced-motion: reduce) {
+  .flash-full { display: none; }
+}
+
