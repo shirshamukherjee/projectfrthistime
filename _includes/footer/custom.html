@@ -1,64 +1,56 @@
-
 <!-- start custom footer snippets -->
+
+<!-- (1) Flash a circular image briefly on load -->
 <script>
 (function () {
   const URL = "{{ '/images/IMG_3341.png' | relative_url }}";
-  const SHOW_MS = 500; // how long to show the flash
+  const SHOW_MS = 500; // how long the flash shows
 
   function flash() {
-    // Full-screen overlay wrapper (inline styles so we don't depend on CSS files)
+    // Full-screen overlay (inline styles so we don’t depend on CSS files)
     const wrap = document.createElement('div');
-    wrap.setAttribute('style',
-      'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:1;transition:opacity .5s ease-out;background:transparent;');
-
-    // The circular image
+    wrap.style.cssText =
+      'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:1;transition:opacity .5s ease-out;background:transparent;';
     const img = document.createElement('img');
-    img.src = URL;
-    img.alt = '';
-    img.setAttribute('style',
-      'width:220px;height:220px;border-radius:9999px;object-fit:cover;box-shadow:0 12px 40px rgba(0,0,0,.5);');
-
+    img.src = URL; img.alt = '';
+    img.style.cssText =
+      'width:220px;height:220px;border-radius:9999px;object-fit:cover;box-shadow:0 12px 40px rgba(0,0,0,.5);';
     wrap.appendChild(img);
     document.body.appendChild(wrap);
 
-    // Fade out, then remove
+    // Fade out then remove
     setTimeout(() => { wrap.style.opacity = '0'; }, 350);
     setTimeout(() => { wrap.remove(); }, SHOW_MS + 400);
   }
 
-  // Preload to avoid any broken-icon flicker, then show
+  // Preload first; only flash if the image loads
   const pre = new Image();
   pre.onload = flash;
-  pre.onerror = function () {
-    console.warn('Flash image failed to load:', URL);
-    // If it fails to load, just skip flashing — no broken icon.
-  };
+  pre.onerror = function () { /* no-op if not found */ };
   pre.src = URL;
 
-  // Expose a manual trigger for debugging
+  // Manual trigger for debugging in the console
   window._flashNow = flash;
   console.log('Flash script ready:', URL);
 })();
 </script>
 
-<!-- end custom footer snippets -->
-
-
-
+<!-- (2) Optional: link to sitemap -->
 <a href="/sitemap/">Sitemap</a>
 
-<!-- Support for MatJax -->
+<!-- (3) Optional libraries you were using -->
+<!-- MathJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- Support for Plotly -->
-<script defer src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js'></script>
+<!-- Plotly -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js"></script>
 
-<!-- Support for Mermaid -->
+<!-- Mermaid (no top-level await) -->
 <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({startOnLoad:true, theme:'default'});
-    await mermaid.run({querySelector:'code.language-mermaid'});
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  mermaid.run({ querySelector: 'code.language-mermaid' });
 </script>
 
 <!-- end custom footer snippets -->
