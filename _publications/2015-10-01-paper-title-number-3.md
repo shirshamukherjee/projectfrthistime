@@ -2,9 +2,9 @@
 title: "Learning through cognitive, affective, and psychomotor domains: Understanding undergraduate engineering students’ perspectives in the United States."
 collection: publications
 category: manuscripts
-permalink: (/publication/2015-10-01-paper-title-number-3)
-excerpt: 'This paper is about understanding where engineering students feel that they are being challeneged in learning. We aim to bridge the gap between students' perceptions, and how they are taught, in terms of learning domains (defined by Bloom's Taxonomy).'
-date: 2015-08-014
+permalink: /publication/2015-10-01-paper-title-number-3/
+excerpt: "This paper is about understanding where engineering students feel that they are being challeneged in learning. We aim to bridge the gap between students' perceptions, and how they are taught, in terms of learning domains (defined by Bloom's Taxonomy)."
+date: 2015-08-14
 venue: 'Engineering Education Review'
 paperurl: 'http://academicpages.github.io/files/paper3.pdf](https://www.hksmp.com/journals/eer/article/view/916'
 citation: 'Mukherjee, S., & Kittur, J. (2025). Learning through cognitive, affective, and psychomotor domains: Understanding undergraduate engineering students’ perspectives in the United States. Engineering Education Review, 3. https://doi.org/10.54844/eer.2025.0916.'
