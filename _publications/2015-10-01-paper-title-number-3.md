@@ -3,12 +3,11 @@ title: "Paper Title Number 3"
 collection: publications
 category: manuscripts
 permalink: /publication/2015-10-01-paper-title-number-3
-excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
-date: 2015-10-01
-venue: 'Journal 1'
-slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
-paperurl: 'http://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).'
+excerpt: 'This paper is about understanding where engineering students feel that they are being challeneged in learning. We aim to bridge the gap between students' perceptions, and how they are taught, in terms of learning domains (defined by Bloom's Taxonomy).'
+date: 2015-08-014
+venue: 'Engineering Education Review'
+paperurl: 'http://academicpages.github.io/files/paper3.pdf](https://www.hksmp.com/journals/eer/article/view/916'
+citation: 'Mukherjee, S., & Kittur, J. (2025). Learning through cognitive, affective, and psychomotor domains: Understanding undergraduate engineering students’ perspectives in the United States. Engineering Education Review, 3. https://doi.org/10.54844/eer.2025.0916.'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+This study explores engineering students’ perceptions of their learning experiences across the cognitive, affective, and psychomotor domains, as defined by Bloom’s Taxonomy. Despite extensive research on the cognitive, affective, and psychomotor domains of learning, there remains a gap in understanding how engineering students perceive their abilities within these learning frameworks, particularly in relation to teaching methodologies. The research aims to address the following questions: How do engineering students perceive their learning in the cognitive, affective, and psychomotor domains? A survey instrument was developed, consisting of 18 items across the three learning domains. The survey was administered to engineering students who had experience as teaching assistants, and exploratory factor analysis (EFA) was conducted to examine the factor structure of the instrument. Data were collected from 115 participants after cleaning. Skewness and kurtosis checks confirmed the assumption of normality, and Bartlett’s test of sphericity, along with the Kaiser-Meyer-Olkin (KMO) test, confirmed the appropriateness of factor analysis. Three distinct factors emerged from the EFA: the cognitive, affective, and psychomotor domains. Internal consistency was evaluated using Cronbach’s alpha, with values ranging from 0.63 to 0.73, indicating good reliability. The findings suggest that students report higher confidence in applying knowledge in new situations, receiving knowledge, and valuing their own learning outcomes. This study contributes to the field by providing a deeper understanding of how students perceive their learning across different domains, paving the way for more targeted and effective educational strategies in engineering programs
