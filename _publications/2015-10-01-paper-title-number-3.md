@@ -1,5 +1,5 @@
 ---
-title: "Paper Title Number 3"
+title: "Learning through cognitive, affective, and psychomotor domains: Understanding undergraduate engineering students’ perspectives in the United States."
 collection: publications
 category: manuscripts
 permalink: /publication/2015-10-01-paper-title-number-3
