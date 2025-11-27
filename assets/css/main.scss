@@ -314,3 +314,16 @@ html::after {
   box-shadow: none !important;     /* remove any bottom edge line */
   backdrop-filter: none !important;
 }
+/* Fix X / Twitter share button visibility without touching other buttons */
+a.btn[href*="twitter.com/intent/tweet"],
+a.btn[href*="x.com/intent/post"] {
+  background-color: #222 !important;  /* dark background */
+  color: #fff !important;             /* white text */
+}
+
+/* Optional: keep hover still readable */
+a.btn[href*="twitter.com/intent/tweet"]:hover,
+a.btn[href*="x.com/intent/post"]:hover {
+  background-color: #fff !important;  /* light background */
+  color: #000 !important;             /* dark text */
+}
