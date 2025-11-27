@@ -10,13 +10,10 @@
 main:
   - title: "Publications"
     url: /publications/
-
-   - title: "Conferences"
-     url: /talks/
-
+  - title: "Conferences"
+    url: /talks/
   # - title: "Teaching"
-  #   url: /teaching/    
-    
+  #   url: /teaching/
   - title: "CIERA-REU"
     url: /portfolio/CIERA-REU/
         
