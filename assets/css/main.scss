@@ -327,3 +327,27 @@ a.btn[href*="x.com/intent/post"]:hover {
   background-color: #fff !important;  /* light background */
   color: #000 !important;             /* dark text */
 }
+/* === Fix X / Twitter share button visibility === */
+
+/* Normal state: dark button with light text */
+a[href*="twitter.com"],
+a[href*="x.com"],
+a[title*="Twitter"],
+a[title*="X (formerly Twitter)"] {
+  background-color: #222 !important;
+  color: #fff !important;
+}
+
+/* Make sure inner span/icon matches */
+a[href*="twitter.com"] *,
+a[href*="x.com"] * {
+  color: inherit !important;
+  fill: currentColor !important;
+}
+
+/* Hover: light background with dark text (optional) */
+a[href*="twitter.com"]:hover,
+a[href*="x.com"]:hover {
+  background-color: #fff !important;
+  color: #000 !important;
+}
