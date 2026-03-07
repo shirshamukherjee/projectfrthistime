@@ -13,9 +13,9 @@ At the University of Oklahoma, I have been heavily involved in [President's Comm
 
 Research Interests
 ======
-I've conducted research on a wide breath of topics, from biomedical engineering, to engineering education, to gravitational wave analysis. I've recently joined the LIGO Collaboration, and currently I am using [Bayesian statistics](https://srcd.onlinelibrary.wiley.com/doi/10.1111/cdev.12169) to characterize populations of binary-black-hole mergers. 
+I've conducted research on a wide breath of topics, from biomedical engineering, to engineering education, to high particle physics, to gravitational wave analysis. I've recently joined the LIGO Collaboration, and currently I am using [Bayesian statistics](https://srcd.onlinelibrary.wiley.com/doi/10.1111/cdev.12169) to characterize populations of binary-black-hole mergers. 
 
-Very soon, I'll also be doing research in elementary particle physics where I'll be quantifying how well the cross-sectional area can be measured in order to detect top + bottom quarks.
+Currently, I'm interested in exploring more applications of physics for the sake of the betterment of today's world.
 
 
 
