@@ -1,5 +1,5 @@
 ---
-title: "On the Astrophysical Origin of Binary Black Hole Subpopulations: A Tale of Three Channels?
+title: "On the Astrophysical Origin of Binary Black Hole Subpopulations: A Tale of Three Channels?"
 collection: publications
 category: manuscripts
 permalink: (/publication/2024-02-17-paper-title-number-4)
