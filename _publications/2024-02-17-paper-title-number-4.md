@@ -1,4 +1,3 @@
-
 ---
 title: "On the Astrophysical Origin of Binary Black Hole Subpopulations: A Tale of Three Channels?
 collection: publications
