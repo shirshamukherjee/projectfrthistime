@@ -4,6 +4,7 @@ collection: publications
 category: manuscripts
 permalink: (/publication/2024-02-17-paper-title-number-4)
 excerpt: 'This work uses statistical modeling of gravitational wave data to uncover distinct populations of merging black holes and probe their astrophysical origins.'
+venue: 'ArXiv for now'
 date: 2026-03-18
 paperurl: 'https://arxiv.org/abs/2603.17987'
 citation: '	arXiv:2603.17987 [astro-ph.HE]'
