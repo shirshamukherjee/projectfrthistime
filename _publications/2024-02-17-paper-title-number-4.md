@@ -2,8 +2,8 @@
 ---
 title: "On the Astrophysical Origin of Binary Black Hole Subpopulations: A Tale of Three Channels?
 collection: publications
-category: conferences
-permalink: /publication/2024-02-17-paper-title-number-4
+category: manuscripts
+permalink: (/publication/2024-02-17-paper-title-number-4)
 excerpt: 'This work uses statistical modeling of gravitational wave data to uncover distinct populations of merging black holes and probe their astrophysical origins.'
 date: 2026-03-18
 venue: 'N/A'
