@@ -6,7 +6,7 @@ permalink: (/publication/2009-10-01-paper-title-number-1)
 excerpt: 'This paper is about using a new surface-modification polymer (HEP) on gold nanoparticles instead of the widely-used PEG.'
 date: 2022-02-15
 venue: 'ACS Publications'
-paperurl: 	'http://academicpages.github.io/files/paper1.pdf](https://pubs.acs.org/doi/full/10.1021/acs.nanolett.2c00349'
+paperurl: 	'https://pubs.acs.org/doi/full/10.1021/acs.nanolett.2c00349'
 bibtexurl: '../achs_nalefd22_2103.bib'
 citation: 'Nanoparticle Surface Engineering with Heparosan Polysaccharide Reduces Serum Protein Adsorption and Enhances Cellular Uptake
 Wen Yang, Lin Wang, Mulin Fang, Vinit Sheth, Yushan Zhang, Alyssa M. Holden, Nathan D. Donahue, Dixy E. Green, Alex N. Frickenstein, Evan M. Mettenbrink, Tyler A. Schwemley, Emmy R. Francek, Majood Haddad, Md Nazir Hossen, Shirsha Mukherjee, Si Wu, Paul L. DeAngelis, and Stefan Wilhelm
